@@ -4,14 +4,18 @@
       <title> Chad's Amazing Website</title>
       <style>
     body {
-        background: rgb(125, 198, 205);
+        background: #202020;
         color: rgb(45, 45, 45);
         padding: 10px;
         font-family: arial;
+        
     }
     header {
         font-size: 1.5em;
         font-weight: bold;
+        
+        
+        
     }
     #all-contents {
         max-width: 800px;
@@ -20,16 +24,17 @@
 
     /* navigation menu */
     nav {
-        background: rgb(290, 100, 100);
+        background: #534c5c;
         margin: 0 auto;
         margin-bottom: 20px;
         display: flex;
         padding: 10px;
+        border-radius:10px;
     }
-    nav header {
+    nav h1 {
         display: flex;
         align-items: center;
-        color: rgb(255, 255, 255);
+        color: #f0e9e9;
         flex: 1;
     }
     nav ul {
@@ -63,6 +68,9 @@
     .interests header {
         font-size: 1.25em;
     }
+    .hover:hover{
+        opacity:.5;
+    }
 </style>
     </head>
     
@@ -71,8 +79,8 @@
           <nav>
               <h1>Chad's Portfolio Website</h1>
               <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li><a href="index.html" class="hover">Home</a></li>
+                  <li><a href="portfolio.html" class="hover">Portfolio</a></li>
               </ul>
           </nav>
           
