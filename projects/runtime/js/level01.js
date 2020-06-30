@@ -16,9 +16,10 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY }
+                { "type": "car", "x": 400, "y": 450 },
+                { "type": "car", "x": 600, "y": 450 },
+                { "type": "car", "x": 900, "y": 450 },
+,
             ]
         };
         window.levelData = levelData;
@@ -26,8 +27,87 @@ var level01 = function (window) {
         game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
+        function createReward(x,y){
+        var coins = game.createGameItem('coins',25);
+        var blueSquare =  draw.bitmap('img/coins.png');
+        blueSquare.scaleX = .1;
+        blueSquare.scaleY = .1;
+        blueSquare.x = -25;
+        blueSquare.y = -25;
+        coins.addChild(blueSquare);
+        coins.x = x;
+        coins.y = y;
+        game.addGameItem(coins);
+        
+        coins.velocityX = -1;
 
         
+        coins.onPlayerCollision = function(){
+
+            coins.fadeOut();
+        };
+        }        
+        
+        createReward(900, groundY - 20);
+        
+        
+        function createEnemy(x,y){
+        var enemy = game.createGameItem('enemy',25);
+        var redSquare =  draw.bitmap('img/person.png');
+        redSquare.scaleX = .1;
+        redSquare.scaleY = .1;
+        redSquare.x = -25;
+        redSquare.y = -25;
+        enemy.addChild(redSquare);
+        enemy.x = x;
+        enemy.y = y;
+        game.addGameItem(enemy);
+        
+        enemy.velocityX = -1;
+
+        
+        enemy.onPlayerCollision = function(){
+            console.log('The enemy has hit Halle');
+            game.changeIntegrity(-10);
+            enemy.fadeOut();
+        };
+        enemy.onProjectileCollision = function(){
+            enemy.shrink();
+        };
+        };
+        
+        
+
+        
+        
+        createReward(900, groundY - 20);  
+        createEnemy(1000,groundY-20);
+        createEnemy(800,groundY-20);
+        
+        
+        function createCar(x,y){
+        var hitZoneSize = 25;
+        var damageFromObstable = 20;
+        var carHitZone = game.createObstacle(hitZoneSize, damageFromObstable); 
+        carHitZone.x = x;
+        carHitZone.y = y;
+        game.addGameItem(carHitZone);
+        var obstacleImage = draw.bitmap('img/car.png');
+
+        obstacleImage.scaleX = .02;
+        obstacleImage.scaleY = .02;
+        carHitZone.addChild(obstacleImage);
+        obstacleImage.x = -25;
+        obstacleImage.y = -25;   
+        }
+        for(var i = 0; i < levelData.gameItems.length; i++){
+            var firstGameItemObject = levelData.gameItems[i];
+            createCar(firstGameItemObject.x, firstGameItemObject.y);
+
+            
+        }
+        
+
         
         
         // DO NOT EDIT CODE BELOW HERE
