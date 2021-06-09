@@ -1,0 +1,43 @@
+
+--USER STORE/GAMEPLAY--
+Gameplay: There are 2 players in pong. Each player will move 
+          their paddle up and down within the box in order to 
+          hit the moving ball. The goal is to get the ball pass 
+          the other players paddle. When you get the ball pass 
+          the players paddle you will earn a point.
+
+Start Conditions:The ball will have to start in the center between 
+                 the two paddles. The paddles will have to  start 
+                 in the same position whenever the game stars. When 
+                 the game starts the score for both players will 
+                 have to be 0.
+
+End Conditions: In PONG there is not definite goal, so the game 
+                does not have to end. However, if I do want the 
+                game to end I can create a point goal for the 
+                players to reach in order to win.
+
+If's: If the paddle hit's player 1's paddle then bounce the ball
+      right and if the ball hits player 2's paddle bounce the ball left. 
+      If the ball is hit off screen on the left side increase player 2's 
+      score and if the ball is hit off screen on the right side then add
+      to player 1's score. If it goes off to the left or right reset paddle position and ball position. 
+      If they reach enough points to win then reset the points and the paddle & ball position.
+
+--VISUALS--
+-Paddles(Animated): positionX, positionY, speedX, speedY
+-Ball(Animated): positionX, positionY, speedX, speedY
+-Score Text(Animated): points
+-Center Line(Static)
+-Background(Static)
+
+--EVENTS/LOGIC--
+Events: keydown and keyup for the UP and DOWN arrow key(player 1) and W and S key(player 2)
+
+How do those events affect the data of the program? The events will change the X and Y position of the paddle.
+
+Logic: When a key is pressed and that key  is the DOWN key then move the paddle down for player 1. 
+       When a key is pressed and that is key the UP key then move the paddle up for player 1.
+       The same goes for player 2 expect he uses the W key for up and the S key for down.
+       When the up and down key for either of the two player is released their paddle will stop moving.
+       
