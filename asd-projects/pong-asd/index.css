@@ -1,21 +1,76 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(255, 255, 255);
 }
 
+p{
+  text-align: center;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+
+
 #board {
-  width: 440px;
+  width: 880px;
   height: 440px;
   border: 1px solid white;
-  background-color: black;
+  background-color: rgb(15, 15, 15);
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
-  width: 50px;
-  height: 50px;
+#player1 {
+  background-color: rgb(236, 236, 236);
+  width: 25px;  /* Was 50px */
+  height: 100px;
   position: absolute;
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  top: 170px;     /* Uncomment if you want to set a "starting" position */
+  border-radius: 5px;
+}
+
+#player2 {
+  background-color: rgb(236, 236, 236);
+  width: 25px;  /* Was 50px */
+  height: 100px;
+  position: absolute;
+  left: 855px;   /* Uncomment if you want to set a "starting" position */
+  top:  170px;    /* Uncomment if you want to set a "starting" position */
+  border-radius: 5px;
+}
+
+#box1 {
+  background-color: rgb(236, 236, 236);
+  width: 50px;  /* Was 50px */
+  height: 50px;
+  position: absolute;
+  left: 200px;   /* Uncomment if you want to set a "starting" position */
+  top:  5px;    /* Uncomment if you want to set a "starting" position */
+  border-radius: 2px;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+#box2 {
+  background-color: rgb(236, 236, 236);
+  width: 50px;  /* Was 50px */
+  height: 50px;
+  position: absolute;
+  left: 655px;   /* Uncomment if you want to set a "starting" position */
+  top:  5px;    /* Uncomment if you want to set a "starting" position */
+  border-radius: 2px;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+#ball {
+  background-color: rgb(236, 236, 236);
+  width: 25px;  /* Was 50px */
+  height: 25px;
+  position: absolute;
+  left: 440px;   /* Uncomment if you want to set a "starting" position */
+  top: 220px;    /* Uncomment if you want to set a "starting" position */
+border-radius: 100px;
 }

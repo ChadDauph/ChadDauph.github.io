@@ -27,7 +27,7 @@ If's: If the paddle hit's player 1's paddle then bounce the ball
 --VISUALS--
 -Paddles(Animated): positionX, positionY, speedX, speedY
 -Ball(Animated): positionX, positionY, speedX, speedY
--Score Text(Animated): points
+-Score Text(Animated): point(player 1 & player 2)
 -Center Line(Static)
 -Background(Static)
 
