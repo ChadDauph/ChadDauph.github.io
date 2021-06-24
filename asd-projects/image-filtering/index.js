@@ -5,9 +5,10 @@ $(document).ready(function(){
 
     // TODO: Call your apply function(s) here
     applyFilter(reddify);
+    //applyFilterNoBackground(decreaseBlue);
+    //applyFilterNoBackground(increaseGreenByBlue);
     applyFilter(decreaseBlue);
     applyFilter(increaseGreenByBlue);
-
 
 
 
@@ -25,7 +26,7 @@ function applyFilter(filterFunction) {
         for(var j = 0; j < image[i].length; j++) {
             
             var rgbString = image[i][j];
-            var rgbNumbers = rgbStringToArray(rgbString);
+            rgbNumbers = rgbStringToArray(rgbString);
             //rgbNumbers[RED] = 255;
             filterFunction(rgbNumbers);
             rgbString = rgbArrayToString(rgbNumbers);
