@@ -5,10 +5,10 @@ $(document).ready(function(){
 
     // TODO: Call your apply function(s) here
     applyFilter(reddify);
-    //applyFilterNoBackground(decreaseBlue);
-    //applyFilterNoBackground(increaseGreenByBlue);
-    applyFilter(decreaseBlue);
-    applyFilter(increaseGreenByBlue);
+    applyFilterNoBackground(decreaseBlue);
+    applyFilterNoBackground(increaseGreenByBlue);
+    //applyFilter(decreaseBlue);
+    //applyFilter(increaseGreenByBlue);
 
 
 
@@ -31,6 +31,23 @@ function applyFilter(filterFunction) {
             filterFunction(rgbNumbers);
             rgbString = rgbArrayToString(rgbNumbers);
             image[i][j] = rgbString;
+        }
+    }
+}
+
+function applyFilterNoBackground(filterFunction) {
+    for(var i = 0; i < image.length; i++) {
+        //console.log(image[i]);
+        for(var j = 0; j < image[i].length; j++) {
+            
+            if(image[0][0] !== image[i][j]){
+                var rgbString = image[i][j];
+                rgbNumbers = rgbStringToArray(rgbString);
+                //rgbNumbers[RED] = 255;
+                filterFunction(rgbNumbers);
+                rgbString = rgbArrayToString(rgbNumbers);
+                image[i][j] = rgbString;
+            }
         }
     }
 }
