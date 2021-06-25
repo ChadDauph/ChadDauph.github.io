@@ -20,6 +20,7 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////
 
 // TODO 1 & 3: Create the applyFilter function here
+//applyFilter updates each pixel color based on the filter that was called
 function applyFilter(filterFunction) {
     for(var i = 0; i < image.length; i++) {
         //console.log(image[i]);
@@ -35,12 +36,14 @@ function applyFilter(filterFunction) {
     }
 }
 
+//updates the pixel color only for mario and not the background
 function applyFilterNoBackground(filterFunction) {
     for(var i = 0; i < image.length; i++) {
         //console.log(image[i]);
         for(var j = 0; j < image[i].length; j++) {
             
-            if(image[0][0] !== image[i][j]){
+            var backgroundRGB = image[0][0]
+            if(backgroundRGB !== image[i][j]){
                 var rgbString = image[i][j];
                 rgbNumbers = rgbStringToArray(rgbString);
                 //rgbNumbers[RED] = 255;
@@ -52,13 +55,16 @@ function applyFilterNoBackground(filterFunction) {
     }
 }
 
+//Makes the image more red
 function reddify(array) {
     array[RED] = 255;
 }
 
+//Decreases the blue value in each pixel
 function decreaseBlue(array) {
     array[BLUE] -= Math.max(0, array[BLUE] - 30);
 }
+
 function increaseGreenByBlue(array) {
     array[GREEN] = Math.min(255, array[GREEN] + array[BLUE] ) 
 }
